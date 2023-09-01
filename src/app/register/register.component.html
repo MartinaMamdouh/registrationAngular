@@ -1,0 +1,104 @@
+<!-- <form (ngSubmit)="register()" [formGroup]="registerForm">
+    <input type="text" formControlName="name" placeholder="Name" required>
+    <input type="text" formControlName="mobile" placeholder="Mobile" required>
+    <input type="email" formControlName="email" placeholder="Email" required>
+    <input type="password" formControlName="password" placeholder="Password" required>
+    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" required>
+    <button type="submit">Register</button>
+  </form> -->
+
+
+
+<!-- hello world -->
+
+<app-alert *ngIf="showAlert" [color]="alertColor">
+    {{alertMsg}}
+</app-alert>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="imgs">
+                <div  class="container-image">
+                    <img [src]="selectedImage ? selectedImage : profile" alt="profile" class="profile" (click)="imageInput.click()"/>
+                </div>
+                <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" style="display:none">
+                <p class="colorOrange">Upload image</p>
+            </div>
+
+            <form [formGroup]="registrationForm" (ngSubmit)="register()">
+                <!-- name -->
+                <div class="form-group">
+                    <label for="name">Full Name <span class="text-danger">*</span> </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend icon">
+                            <span class="input-group-text">
+                                <span class="material-icons-outlined">person</span>
+                            </span>
+                        </div>
+                        <app-input class="col-lg-6" [control]="name" placeholder="Enter Name"></app-input>
+                    </div>
+                </div>
+                <!-- mobile -->
+                <div class="form-group">
+                    <label for="mobile">Mobile Number <span class="text-danger">*</span> </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="material-icons-outlined">call</span>
+                            </span>
+                        </div>
+                        <app-input class="col-lg-6" [control]="phoneNumber" placeholder="Enter Phone number"></app-input>
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="name">Email <span class="text-danger">*</span> </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend icon">
+                            <span class="input-group-text">
+                                <span class="material-icons-outlined">email</span>
+                            </span>
+                        </div>
+                        <app-input class="col-lg-6" [control]="email" type="email" placeholder="Enter Email"></app-input>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group">
+                    <label for="name">Password <span class="text-danger">*</span> </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend icon">
+                            <span class="input-group-text">
+                                <span class="material-icons-outlined">lock</span>
+                            </span>
+                        </div>
+                        <app-input class="col-lg-6" [control]="password" type="password" placeholder="Enter Password"></app-input>
+                    </div>
+                </div>
+                <!-- confirm password -->
+                <div class="form-group">
+                    <label for="name">Confirm Password <span class="text-danger">*</span> </label>
+                    <div class="input-group ">
+                        <div class="input-group-prepend icon">
+                            <span class="input-group-text">
+                                <span class="material-icons-outlined">lock</span>
+                            </span>
+                        </div>
+                        <app-input class="col-lg-6" [control]="confirm_password" type="password" placeholder="Confirm Password"></app-input>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="registrationForm.invalid ||inSubmission" class="btn btn-primary col-lg-6 ">SIGN UP</button>
+            </form>
+
+            <p>
+                Already have an account? <a class="colorOrange">Login</a>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="pic">
+                <img [src]="pic" alt="pic" />
+            </div>
+        </div>
+    </div>
+</div>
+```
