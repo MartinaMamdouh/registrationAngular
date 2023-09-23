@@ -1,26 +1,9 @@
-<!-- <form (ngSubmit)="register()" [formGroup]="registerForm">
-    <input type="text" formControlName="name" placeholder="Name" required>
-    <input type="text" formControlName="mobile" placeholder="Mobile" required>
-    <input type="email" formControlName="email" placeholder="Email" required>
-    <input type="password" formControlName="password" placeholder="Password" required>
-    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" required>
-    <button type="submit">Register</button>
-  </form> -->
-
-
-
-<!-- hello world -->
-
-<app-alert *ngIf="showAlert" [color]="alertColor">
-    {{alertMsg}}
-</app-alert>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="imgs">
                 <div  class="container-image">
-                    <img [src]="selectedImage ? selectedImage : profile" alt="profile" class="profile" (click)="imageInput.click()"/>
+                    <img [src]="selectedImage ? urlImage : profile" alt="profile" class="profile" (click)="imageInput.click()"/>
                 </div>
                 <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" style="display:none">
                 <p class="colorOrange">Upload image</p>

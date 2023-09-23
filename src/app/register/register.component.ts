@@ -10,6 +10,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class RegisterComponent {
   pic: string = "../assets/images/pic.png"
   profile: string = "../assets/images/profile.png"
+  selectedImage: string =''
+  urlImage: string =''
   name = new FormControl('', [
     Validators.required,
     Validators.minLength(3)
@@ -35,8 +37,6 @@ export class RegisterComponent {
   alertMsg = 'please wait! your account is being created'
   alertColor = 'blue'
   inSubmission = false
-
-  selectedImage: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -68,10 +68,16 @@ export class RegisterComponent {
 
   }, [this.match('password', 'confirm_password')])
 
+  
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
-    this.selectedImage = URL.createObjectURL(file);
-    console.log(this.selectedImage);
+    this.urlImage = URL.createObjectURL(file);
+    this.selectedImage = file.name;
+    console.log(this.selectedImage); 
+    // const file: File = imageInput.files[0];
+    // this.selectedImage = file.name;
+    // console.log(this.selectedImage); 
+    
   }
 
   register() {
@@ -106,6 +112,8 @@ export class RegisterComponent {
             this.inSubmission = false
           }
         })
+        this.alertMsg = 'success! your account has been created'
+            this.alertColor = 'green'
     }
     setTimeout(() => {
       window.location.reload();
